@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=4 uid="uid://bl8esoo65qlf"]
+[gd_scene load_steps=55 format=4 uid="uid://bl8esoo65qlf"]
 
 [ext_resource type="Script" uid="uid://117tc2tjccdd" path="res://scripts/player.gd" id="1_3vyb7"]
 [ext_resource type="Texture2D" uid="uid://dvn63ohwtxm3o" path="res://assets/Characters/Textures/colormap.png" id="2_g2els"]
@@ -806,6 +806,7 @@ tracks/10/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1)
 [sub_resource type="Animation" id="Animation_8imgj"]
 resource_name = "fall"
 length = 0.333333
+loop_mode = 1
 tracks/0/type = "position_3d"
 tracks/0/imported = true
 tracks/0/enabled = true
@@ -2723,13 +2724,66 @@ blend_point_2/node = SubResource("AnimationNodeAnimation_dqkch")
 blend_point_2/pos = 1.0
 min_space = 0.0
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_tuyoq"]
+animation = &"fall"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_qlg0r"]
+animation = &"jump"
+use_custom_timeline = true
+timeline_length = 0.225
+stretch_time_scale = true
+start_offset = 0.0
+loop_mode = 0
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_fjrip"]
+animation = &"jump"
+play_mode = 1
+use_custom_timeline = true
+timeline_length = 0.2
+stretch_time_scale = true
+start_offset = 0.0
+loop_mode = 0
+
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_g2els"]
 advance_mode = 2
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_tuyoq"]
+xfade_time = 0.1
+priority = 0
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_smehm"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ur7pv"]
+priority = 2
+advance_mode = 2
+advance_expression = "is_on_floor()"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_qhqgy"]
+xfade_time = 0.1
+advance_mode = 2
+advance_expression = "not is_on_floor()
+"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_dqkch"]
+xfade_time = 0.1
+switch_mode = 2
+advance_mode = 2
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_tuyoq"]
+states/End/position = Vector2(793, 112)
 states/Locomotion/node = SubResource("AnimationNodeBlendSpace1D_qlg0r")
 states/Locomotion/position = Vector2(573, 112)
-transitions = ["Start", "Locomotion", SubResource("AnimationNodeStateMachineTransition_g2els")]
+states/Start/position = Vector2(334, 112)
+states/fall/node = SubResource("AnimationNodeAnimation_tuyoq")
+states/fall/position = Vector2(573, 15)
+states/jump/node = SubResource("AnimationNodeAnimation_qlg0r")
+states/jump/position = Vector2(428, 46)
+states/land/node = SubResource("AnimationNodeAnimation_fjrip")
+states/land/position = Vector2(708, 46)
+transitions = ["Start", "Locomotion", SubResource("AnimationNodeStateMachineTransition_g2els"), "Locomotion", "jump", SubResource("AnimationNodeStateMachineTransition_tuyoq"), "jump", "fall", SubResource("AnimationNodeStateMachineTransition_smehm"), "fall", "land", SubResource("AnimationNodeStateMachineTransition_ur7pv"), "Locomotion", "fall", SubResource("AnimationNodeStateMachineTransition_qhqgy"), "land", "Locomotion", SubResource("AnimationNodeStateMachineTransition_dqkch")]
+graph_offset = Vector2(18, -29)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_g2els"]
 size = Vector3(0.592068, 1.20233, 0.495157)
@@ -2755,42 +2809,42 @@ bones/1/parent = 0
 bones/1/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.083571, 0.17625, -0.0287499)
 bones/1/enabled = true
 bones/1/position = Vector3(0.083571, 0.17625, -0.02875)
-bones/1/rotation = Quaternion(0, 0, 0, 1)
+bones/1/rotation = Quaternion(-0.441201, 0.407464, 0.235249, 0.764181)
 bones/1/scale = Vector3(1, 1, 1)
 bones/2/name = "leg-right"
 bones/2/parent = 0
 bones/2/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.083571, 0.17625, -0.0287499)
 bones/2/enabled = true
 bones/2/position = Vector3(-0.083571, 0.17625, -0.02875)
-bones/2/rotation = Quaternion(0, 0, 0, 1)
+bones/2/rotation = Quaternion(-0.33768, -0.434684, -0.180052, 0.815232)
 bones/2/scale = Vector3(1, 1, 1)
 bones/3/name = "torso"
 bones/3/parent = 0
 bones/3/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.17625, -0.0287499)
 bones/3/enabled = true
 bones/3/position = Vector3(-1.44382e-15, 0.17625, -0.02875)
-bones/3/rotation = Quaternion(6.59615e-07, 0, 0, 1)
+bones/3/rotation = Quaternion(0, 0, 0, 1)
 bones/3/scale = Vector3(1, 1, 1)
 bones/4/name = "arm-left"
 bones/4/parent = 3
 bones/4/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0998968, 0.1115, 0.0114999)
 bones/4/enabled = true
 bones/4/position = Vector3(0.0998968, 0.1115, 0.0115)
-bones/4/rotation = Quaternion(0, 0, -0.382683, 0.92388)
+bones/4/rotation = Quaternion(-0.0669735, 0.249999, 0.249965, 0.933023)
 bones/4/scale = Vector3(1, 1, 1)
 bones/5/name = "arm-right"
 bones/5/parent = 3
 bones/5/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0998968, 0.1115, 0.0114999)
 bones/5/enabled = true
 bones/5/position = Vector3(-0.0998968, 0.1115, 0.0115)
-bones/5/rotation = Quaternion(0, 0, 0.382683, 0.92388)
+bones/5/rotation = Quaternion(-0.0669735, -0.249999, -0.249965, 0.933023)
 bones/5/scale = Vector3(1, 1, 1)
 bones/6/name = "head"
 bones/6/parent = 3
 bones/6/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.167, 0.0263888)
 bones/6/enabled = true
 bones/6/position = Vector3(1.81969e-09, 0.167, 0.0263888)
-bones/6/rotation = Quaternion(0, -6.59615e-07, 0, 1)
+bones/6/rotation = Quaternion(0.00449034, 0, 0, 0.99999)
 bones/6/scale = Vector3(1, 1, 1)
 
 [node name="body-mesh" type="MeshInstance3D" parent="Star/character-female-e/Skeleton3D"]
@@ -2819,7 +2873,7 @@ shape = SubResource("BoxShape3D_g2els")
 debug_color = Color(0, 0.6, 0.701961, 1)
 
 [node name="camera_mount" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.935487, 0.353361, 0, -0.353361, 0.935487, 0, 2.60012, 2.88818)
+transform = Transform3D(1, 0, 0, 0, 0.935487, 0.353361, 0, -0.353361, 0.935487, 0, 2.25071, 2.88818)
 
 [node name="Camera3D" type="Camera3D" parent="camera_mount"]
-transform = Transform3D(1, -0.000541279, 0.000316567, 0.000541374, 1, -0.00030682, -0.000316404, 0.000306988, 1, 0, 0, 0)
+transform = Transform3D(1, -0.000541277, 0.00031657, 0.000579941, 0.990342, -0.138647, -0.000238466, 0.138647, 0.990342, 0, 0, 0)

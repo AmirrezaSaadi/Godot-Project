@@ -46,6 +46,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5148, 4.76837e-07, 3.97325)
 use_collision = true
 material = SubResource("StandardMaterial3D_rwgxs")
 
+[node name="Obj3" type="CSGBox3D" parent="Map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5148, 1.0152, 3.97325)
+use_collision = true
+material = SubResource("StandardMaterial3D_rwgxs")
+
 [node name="Obj2" type="CSGBox3D" parent="Map"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0505846, 0.0109066, -0.755345)
 use_collision = true
@@ -53,3 +58,4 @@ material = SubResource("StandardMaterial3D_rwgxs")
 
 [node name="Player" parent="." instance=ExtResource("2_rwgxs")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 2)
+jump_height = 1.75
