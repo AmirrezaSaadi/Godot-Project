@@ -1,36 +1,35 @@
-
 extends CharacterBody3D
 
 # Node references
 @onready var camera_mount = $camera_mount
 @onready var star: Node3D = $"Star/character-female-e"
 @onready var animation_tree: AnimationTree = $Star/AnimationPlayer/AnimationTree
+@onready var state_machine: AnimationNodeStateMachinePlayback = animation_tree["parameters/playback"]
+@onready var springarm: SpringArm3D = $camera_mount/SpringArm3D
 
 # Camera settings
-@export var sensitivity: float = 0.05
+@export var sensitivity: float = 0.1
 
 # Movement properties
 @export_category("Locomotion")
-@export var _walking_speed: float = 3
-@export var _running_speed: float = 6
-#@export var _acceleration: float = 4
-#@export var _deceleration: float = 8
-var _movement_speed: float = _walking_speed
+@export var walking_speed: float = 3
+@export var running_speed: float = 6
+var _movement_speed: float
 
 # Jump properties
 @export_category("Jumping")
-@export var _jump_height: float = 2.5
-@export var _mass: float = 1
+@export var jump_height: float = 2.5
+@export var mass: float = 1
 var _jump_velocity: float
 
-# Constants
-const SPEED = 5.0
-const JUMP_VELOCITY = 4.5
 var _gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 # Initialization
 func _ready():
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	
+	_movement_speed = walking_speed
+	_jump_velocity = sqrt(jump_height * _gravity * mass * 2)
 
 # Input handling
 func _input(event: InputEvent) -> void:
@@ -38,25 +37,27 @@ func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
 		rotate_y(deg_to_rad(-event.relative.x * sensitivity))
 		star.rotate_y(deg_to_rad(event.relative.x * sensitivity))
-		camera_mount.rotate_x(deg_to_rad(-event.relative.y * sensitivity))
+		camera_mount.rotate_x(deg_to_rad(-event.relative.y * sensitivity/2))
+		camera_mount.rotation.x = clamp(camera_mount.rotation.x, -PI/4, PI/20)
 	
 	# Action inputs
 	if event.is_action_pressed("sprint"):
-		run()
+		_run()
 	elif event.is_action_released("sprint"):
-		walk()
+		_walk()
 	elif event.is_action_pressed("jump"):
-		jump()
+		_jump()
+	if event.is_action_pressed("zoom_in"):
+		springarm.spring_length -= 0.5
+	if event.is_action_pressed("zoom_out"):
+		springarm.spring_length += 0.5
 
 # Physics update
 func _physics_process(delta: float) -> void:
+	
 	# Apply gravity
 	if not is_on_floor():
-		velocity += get_gravity() * delta
-
-	# Handle jump input
-	if Input.is_action_just_pressed("jump") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
+		velocity.y -= _gravity * mass * delta
 
 	# Calculate movement direction from input
 	var input_dir := Input.get_vector("move_left", "move_right", "move_forward", "move_backward")
@@ -74,22 +75,22 @@ func _physics_process(delta: float) -> void:
 		velocity.z = move_toward(velocity.z, 0, _movement_speed)
 	
 	# Update animation based on movement speed
-	animation_tree.set("parameters/Locomotion/blend_position", Vector2(velocity.x, velocity.z).length() / _running_speed)
+	animation_tree.set("parameters/Locomotion/blend_position", Vector2(velocity.x, velocity.z).length() / running_speed)
 	
 	# Apply movement
 	move_and_slide()
 
 # Movement state functions
-func walk():
-	_movement_speed = _walking_speed
+func _walk():
+	_movement_speed = walking_speed
 	
-func run():
-	_movement_speed = _running_speed
+func _run():
+	_movement_speed = running_speed
 
-func jump():
+func _jump():
 	if is_on_floor():
 		_apply_jump_velocity()
-		# _statemachine.travel("jump")
+		state_machine.travel("jump")
 
 func _apply_jump_velocity():
 	velocity.y = _jump_velocity
