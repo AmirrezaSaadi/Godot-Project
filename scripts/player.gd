@@ -5,9 +5,10 @@ extends CharacterBody3D
 @onready var star: Node3D = $"Star/character-female-e"
 @onready var animation_tree: AnimationTree = $Star/AnimationPlayer/AnimationTree
 @onready var state_machine: AnimationNodeStateMachinePlayback = animation_tree["parameters/playback"]
+@onready var springarm: SpringArm3D = $camera_mount/SpringArm3D
 
 # Camera settings
-@export var sensitivity: float = 0.05
+@export var sensitivity: float = 0.1
 
 # Movement properties
 @export_category("Locomotion")
@@ -36,7 +37,8 @@ func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
 		rotate_y(deg_to_rad(-event.relative.x * sensitivity))
 		star.rotate_y(deg_to_rad(event.relative.x * sensitivity))
-		camera_mount.rotate_x(deg_to_rad(-event.relative.y * sensitivity))
+		camera_mount.rotate_x(deg_to_rad(-event.relative.y * sensitivity/2))
+		camera_mount.rotation.x = clamp(camera_mount.rotation.x, -PI/4, PI/20)
 	
 	# Action inputs
 	if event.is_action_pressed("sprint"):
@@ -45,6 +47,10 @@ func _input(event: InputEvent) -> void:
 		_walk()
 	elif event.is_action_pressed("jump"):
 		_jump()
+	if event.is_action_pressed("zoom_in"):
+		springarm.spring_length -= 0.5
+	if event.is_action_pressed("zoom_out"):
+		springarm.spring_length += 0.5
 
 # Physics update
 func _physics_process(delta: float) -> void:
