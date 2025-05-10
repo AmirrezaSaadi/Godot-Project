@@ -1,0 +1,202 @@
+[gd_scene load_steps=19 format=3 uid="uid://bjpx5mtorlrt4"]
+
+[ext_resource type="Shader" uid="uid://d2jgqqdia7t65" path="res://addons/time-of-day/src/sky/shaders/tod_standard_sky.gdshader" id="1_c4kgf"]
+[ext_resource type="Texture2D" uid="uid://cvqafkrcfb246" path="res://addons/time-of-day/content/textures/third-party/textures/milky-way/Milkyway.jpg" id="2_emgng"]
+[ext_resource type="Texture2D" uid="uid://cevgu4xr0h0p4" path="res://addons/time-of-day/content/resources/default_noise_clouds.tres" id="3_qsatb"]
+[ext_resource type="Texture2D" uid="uid://bg0ltx4f5n1qx" path="res://addons/time-of-day/content/textures/third-party/textures/moon-map/MoonMap.png" id="4_5hgvo"]
+[ext_resource type="Texture2D" uid="uid://bvyqf03kl2e61" path="res://addons/time-of-day/content/textures/third-party/textures/milky-way/StarField.jpg" id="5_5sdoe"]
+[ext_resource type="Script" uid="uid://dmq5q5ag3biib" path="res://addons/time-of-day/src/sky/tod_sky.gd" id="6_g0g7m"]
+[ext_resource type="Gradient" uid="uid://bjuaa8a7wv1x4" path="res://addons/time-of-day/content/resources/default_clouds_gradient.tres" id="7_pbqc1"]
+[ext_resource type="Script" uid="uid://dy77lvm872dbh" path="res://addons/time-of-day/src/sky/material/standard/tod_standard_material.gd" id="8_cs23b"]
+[ext_resource type="Script" uid="uid://qbyjvug6x4j2" path="res://addons/time-of-day/src/sky/celestials/tod_sun.gd" id="9_6t2w0"]
+[ext_resource type="Script" uid="uid://btmbrsr802kwp" path="res://addons/time-of-day/src/sky/celestials/tod_moon.gd" id="10_3gt6b"]
+[ext_resource type="Script" uid="uid://cx4nx2p3t68cy" path="res://addons/time-of-day/src/time-of-day/tod_manager.gd" id="11_v38o6"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ctatt"]
+shader = ExtResource("1_c4kgf")
+shader_parameter/tod_sun_direction = Vector3(0, 0, 0)
+shader_parameter/tod_sun_disk_color = Color(0, 0, 0, 1)
+shader_parameter/tod_sun_disk_intensity = 0.0
+shader_parameter/tod_sun_disk_size = 0.0
+shader_parameter/tod_moon_direction = Vector3(0, 0, 0)
+shader_parameter/tod_moon_color = Color(0, 0, 0, 1)
+shader_parameter/tod_moon_intensity = 0.0
+shader_parameter/tod_moon_size = 0.0
+shader_parameter/tod_moon_texture = ExtResource("4_5hgvo")
+shader_parameter/tod_moon_matrix = Basis(1, 0, 0, 0, 1, 0, 0, 0, 1)
+shader_parameter/tod_enable_night_scatter = false
+shader_parameter/tod_atm_night_intensity = 0.0
+shader_parameter/tod_apply_debanding = false
+shader_parameter/tod_exposure = 0.0
+shader_parameter/tod_tonemap_level = 0.0
+shader_parameter/tod_horizon_level = 0.0
+shader_parameter/tod_atm_sunE = 0.0
+shader_parameter/tod_atm_darkness = 0.0
+shader_parameter/tod_atm_thickness = 0.0
+shader_parameter/tod_atm_rayleigh_level = 0.0
+shader_parameter/tod_atm_tint = Color(0, 0, 0, 1)
+shader_parameter/tod_atm_night_tint = Color(0, 0, 0, 1)
+shader_parameter/tod_atm_beta_ray = Vector3(0, 0, 0)
+shader_parameter/tod_atm_beta_mie = Vector3(0, 0, 0)
+shader_parameter/tod_atm_sun_mie_tint = Color(0, 0, 0, 1)
+shader_parameter/tod_atm_sun_mie_intensity = 0.0
+shader_parameter/tod_atm_sun_partial_mie_phase = Vector3(0, 0, 0)
+shader_parameter/tod_atm_moon_mie_tint = Color(0, 0, 0, 1)
+shader_parameter/tod_atm_moon_mie_intensity = 0.0
+shader_parameter/tod_atm_moon_partial_mie_phase = Vector3(0, 0, 0)
+shader_parameter/tod_atm_ground_color = Color(0, 0, 0, 1)
+shader_parameter/tod_sun_uMuS = 0.0
+shader_parameter/tod_background_texture = ExtResource("2_emgng")
+shader_parameter/tod_background_color = Color(0, 0, 0, 1)
+shader_parameter/tod_stars_field_texture = ExtResource("5_5sdoe")
+shader_parameter/tod_stars_field_color = Color(0, 0, 0, 1)
+shader_parameter/tod_stars_field_intensity = 0.0
+shader_parameter/tod_stars_scintillation = 0.0
+shader_parameter/tod_stars_scintillation_speed = 0.0
+shader_parameter/tod_deep_space_matrix = Basis(1, 0, 0, 0, 1, 0, 0, 0, 1)
+shader_parameter/tod_clouds_noise_tex = ExtResource("3_qsatb")
+shader_parameter/tod_clouds_noise_freq = 3.0
+shader_parameter/tod_clouds_smooth = 0.05
+shader_parameter/tod_clouds_size = 0.5
+shader_parameter/tod_clouds_shell_offset = 410.0
+shader_parameter/tod_clouds_coverage = 0.7
+shader_parameter/tod_clouds_absorption = 1.0
+shader_parameter/tod_clouds_thickness = 0.7
+shader_parameter/tod_clouds_intensity = 1.0
+shader_parameter/tod_clouds_color = Color(0, 0, 0, 1)
+shader_parameter/tod_clouds_night_color = Color(0, 0, 0, 1)
+shader_parameter/tod_clouds_offset = Vector3(0, 0, 0)
+shader_parameter/tod_clouds_offset_speed = 0.0
+shader_parameter/tod_clouds_samples = 0
+
+[sub_resource type="Sky" id="Sky_6cw6f"]
+sky_material = SubResource("ShaderMaterial_ctatt")
+process_mode = 3
+
+[sub_resource type="Environment" id="Environment_xgqkh"]
+background_mode = 2
+sky = SubResource("Sky_6cw6f")
+tonemap_mode = 3
+tonemap_white = 6.0
+glow_enabled = true
+glow_levels/1 = 2.0
+glow_levels/2 = 4.0
+glow_levels/3 = 8.0
+glow_levels/4 = 16.0
+glow_levels/5 = 32.0
+glow_levels/6 = 64.0
+glow_levels/7 = 128.0
+glow_normalized = true
+glow_bloom = 0.1
+glow_blend_mode = 1
+fog_light_energy = 2.18
+volumetric_fog_density = 0.0
+volumetric_fog_ambient_inject = 1.27
+volumetric_fog_sky_affect = 0.813
+adjustment_enabled = true
+adjustment_saturation = 1.3
+
+[sub_resource type="Gradient" id="Gradient_j6bko"]
+offsets = PackedFloat32Array(0.6875, 0.834821)
+colors = PackedColorArray(0.736755, 0.880419, 1, 1, 1, 0.730178, 0.730178, 1)
+
+[sub_resource type="Resource" id="Resource_munwf"]
+script = ExtResource("8_cs23b")
+apply_debanding = false
+exposure = 1.0
+horizon_level = 0.0
+atm_wavelenghts = Vector3(680, 550, 440)
+atm_darkness = 0.1
+atm_sun_intensity = 15.0
+atm_day_tint = Color(0.65098, 0.847059, 1, 1)
+atm_day_gradient = SubResource("Gradient_j6bko")
+atm_night_tint = Color(0.254902, 0.337255, 0.447059, 1)
+atm_rayleigh_level = 1.0
+atm_thickness = 1.0
+atm_mie = 0.07
+atm_turbidity = 0.001
+atm_ground_color = Color(0.513726, 0.513726, 0.513726, 1)
+deep_space_euler = Vector3(-0.752, -2.56, 0)
+background_color = Color(0.172549, 0.172549, 0.172549, 0.560784)
+use_custom_bg_texture = false
+background_texture = ExtResource("2_emgng")
+stars_field_color = Color(1, 1, 1, 1)
+stars_field_intensity = 10.0
+use_custom_stars_field_texture = false
+stars_field_texture = ExtResource("5_5sdoe")
+stars_scintillation = 0.75
+stars_scintillation_speed = 7.5
+use_custom_clouds_noise_tex = false
+clouds_noise_freq = 2.3
+clouds_samples = 16
+clouds_size = 2.0
+clouds_shell_offset = -490.0
+clouds_smooth = 0.1
+clouds_coverage = 0.43
+clouds_absorption = 11.161
+clouds_thickness = 0.897
+clouds_intensity = 10.0
+clouds_night_color = Color(0.1803, 0.3019, 0.5058, 1)
+clouds_gradient = ExtResource("7_pbqc1")
+clouds_offset = Vector3(0.05, -0.05, 0.01)
+clouds_offset_speed = 0.02
+enable_night_scattering = false
+
+[sub_resource type="Gradient" id="Gradient_ts3gi"]
+offsets = PackedFloat32Array(0.366379, 0.814655, 0.931035)
+colors = PackedColorArray(1, 0.84551, 0.776214, 1, 1, 0.580388, 0.375046, 1, 1, 0.381623, 0.381623, 1)
+
+[sub_resource type="Curve" id="Curve_0nbtd"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.9, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[node name="Sky" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_xgqkh")
+
+[node name="TOD_Sky" type="Node" parent="."]
+script = ExtResource("6_g0g7m")
+material = SubResource("Resource_munwf")
+enviro_container = NodePath("../WorldEnvironment")
+
+[node name="TOD_Sun" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0, -0.985581, 0.169202, -0.822852, 0.0961497, 0.560062, -0.568255, -0.139228, -0.810988, 0.169202, 0.560062, -0.810988)
+light_color = Color(1, 0.802005, 0.710385, 1)
+shadow_enabled = true
+script = ExtResource("9_6t2w0")
+disk_size = 0.001
+transform_type = 0
+mie_anisotropy = 0.81184
+lighting_color_gradient = SubResource("Gradient_ts3gi")
+lighting_energy_curve = SubResource("Curve_0nbtd")
+altitude = 55.9399
+azimuth = 168.215
+
+[node name="TOD_Moon" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0, -0.855431, 0.517917, 0.97978, -0.103622, -0.17115, 0.200075, 0.507445, 0.838134, 0.517917, -0.17115, 0.838134)
+light_color = Color(0.54, 0.7, 0.9, 1)
+light_energy = 0.0
+light_specular = 0.475
+script = ExtResource("10_3gt6b")
+intensity = 1.5
+size = 0.075
+texture = ExtResource("4_5hgvo")
+transform_type = 0
+mie_color = Color(0.165, 0.533, 1, 1)
+mie_intensity = 0.5
+lighting_color = Color(0.54, 0.7, 0.9, 1)
+lighting_energy = 1.25
+altitude = 99.8547
+azimuth = 31.7136
+
+[node name="TOD_Manager" type="Node" parent="."]
+script = ExtResource("11_v38o6")
+sky_path = NodePath("../TOD_Sky")
+total_cycle_in_minutes = 24.0
+timeline = 10.414
+day = 1
+month = 4
+year = 2025
+latitude = 60.0
+longitude = 15.0

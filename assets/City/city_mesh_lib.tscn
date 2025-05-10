@@ -1,0 +1,49 @@
+[gd_scene load_steps=16 format=3 uid="uid://w11pgf521oku"]
+
+[ext_resource type="PackedScene" uid="uid://doxk0keljlxxm" path="res://assets/City/building_A.gltf" id="3_vp5ks"]
+[ext_resource type="PackedScene" uid="uid://fmcrs8o28g6w" path="res://assets/City/building_B.gltf" id="4_tq3mn"]
+[ext_resource type="PackedScene" uid="uid://di0vjwj88hr2f" path="res://assets/City/building_C.gltf" id="5_1bu5x"]
+[ext_resource type="PackedScene" uid="uid://ct14bfgnhhbc8" path="res://assets/City/building_D.gltf" id="6_2oktf"]
+[ext_resource type="PackedScene" uid="uid://cywlhw1wa0mxh" path="res://assets/City/building_E.gltf" id="7_iml8q"]
+[ext_resource type="PackedScene" uid="uid://da2x2b1modb8y" path="res://assets/City/building_F.gltf" id="8_phtk3"]
+[ext_resource type="PackedScene" uid="uid://bwyadva2iyrjk" path="res://assets/City/building_G.gltf" id="9_lv1a8"]
+[ext_resource type="PackedScene" uid="uid://ckh3wyntgq7ob" path="res://assets/City/building_H.gltf" id="10_svnr8"]
+[ext_resource type="PackedScene" uid="uid://dpaaq6l6yaemf" path="res://assets/City/road_corner.gltf" id="18_tf33j"]
+[ext_resource type="PackedScene" uid="uid://dmhgj8ak7xfwa" path="res://assets/City/road_corner_curved.gltf" id="19_vfalp"]
+[ext_resource type="PackedScene" uid="uid://c5emjdke3hobn" path="res://assets/City/road_straight.gltf" id="20_al6c4"]
+[ext_resource type="PackedScene" uid="uid://b1eigtwqf3lxe" path="res://assets/City/base.gltf" id="24_gxr6f"]
+[ext_resource type="PackedScene" uid="uid://ovbsicljc6j1" path="res://assets/City/road_junction.gltf" id="25_1bu5x"]
+[ext_resource type="PackedScene" uid="uid://b8kt0pyyxpjwf" path="res://assets/City/road_straight_crossing.gltf" id="26_2oktf"]
+[ext_resource type="PackedScene" uid="uid://diljcha61h8wx" path="res://assets/City/road_tsplit.gltf" id="27_iml8q"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="building_A2" parent="." instance=ExtResource("3_vp5ks")]
+
+[node name="building_B2" parent="." instance=ExtResource("4_tq3mn")]
+
+[node name="building_C2" parent="." instance=ExtResource("5_1bu5x")]
+
+[node name="building_D2" parent="." instance=ExtResource("6_2oktf")]
+
+[node name="building_E2" parent="." instance=ExtResource("7_iml8q")]
+
+[node name="building_F2" parent="." instance=ExtResource("8_phtk3")]
+
+[node name="building_G2" parent="." instance=ExtResource("9_lv1a8")]
+
+[node name="building_H2" parent="." instance=ExtResource("10_svnr8")]
+
+[node name="base2" parent="." instance=ExtResource("24_gxr6f")]
+
+[node name="road_corner2" parent="." instance=ExtResource("18_tf33j")]
+
+[node name="road_corner_curved2" parent="." instance=ExtResource("19_vfalp")]
+
+[node name="road_junction2" parent="." instance=ExtResource("25_1bu5x")]
+
+[node name="road_straight2" parent="." instance=ExtResource("20_al6c4")]
+
+[node name="road_straight_crossing2" parent="." instance=ExtResource("26_2oktf")]
+
+[node name="road_tsplit2" parent="." instance=ExtResource("27_iml8q")]

@@ -1,0 +1,530 @@
+[gd_scene load_steps=28 format=3 uid="uid://dqqeac21tpx6b"]
+
+[ext_resource type="MeshLibrary" uid="uid://bw4uwqdqqgtsw" path="res://assets/City/city_mesh_lib.meshlib" id="1_014kd"]
+[ext_resource type="PackedScene" uid="uid://od8rt42woijp" path="res://assets/Trees/tree-large.fbx" id="3_4nkto"]
+[ext_resource type="PackedScene" uid="uid://bkghietntgqq0" path="res://assets/City/streetlight.gltf" id="4_5xbjy"]
+[ext_resource type="PackedScene" uid="uid://8q1ei0ka3331" path="res://assets/Trees/planter.fbx" id="4_pa8r4"]
+[ext_resource type="PackedScene" uid="uid://8we4ho55tc" path="res://assets/City/trafficlight_C.gltf" id="5_4nkto"]
+[ext_resource type="PackedScene" uid="uid://bcs46q6mc6agq" path="res://assets/City/car_hatchback.gltf" id="8_7gny6"]
+[ext_resource type="PackedScene" uid="uid://bnax1283ni2xq" path="res://assets/City/car_sedan.gltf" id="9_2aecg"]
+[ext_resource type="PackedScene" uid="uid://dw4w4f4p60udg" path="res://assets/City/car_stationwagon.gltf" id="10_6dial"]
+[ext_resource type="PackedScene" uid="uid://0wbd26mcp334" path="res://assets/City/car_taxi.gltf" id="11_7nomh"]
+[ext_resource type="PackedScene" uid="uid://dtfy3gnls3asv" path="res://assets/City/car_police.gltf" id="12_1s4pk"]
+[ext_resource type="PackedScene" uid="uid://dqqkknioqid4v" path="res://assets/Park/floor_grass_sliced_base.gltf" id="13_7gny6"]
+[ext_resource type="PackedScene" uid="uid://8n8rvfd3ikqn" path="res://assets/Park/fountain.gltf" id="14_7nomh"]
+[ext_resource type="PackedScene" uid="uid://di7cir2xlbrlq" path="res://assets/Park/flower_A.gltf" id="15_1s4pk"]
+[ext_resource type="PackedScene" uid="uid://bdgk7jbfedgm6" path="res://assets/Park/bird.gltf" id="15_d5akn"]
+[ext_resource type="PackedScene" uid="uid://cfjbnsnltdhm7" path="res://assets/Park/flower_B.gltf" id="16_isj1j"]
+[ext_resource type="PackedScene" uid="uid://blhq8uq6vr7ho" path="res://assets/Park/grass_A.gltf" id="16_x2xxo"]
+[ext_resource type="PackedScene" uid="uid://clvgly15b7cf5" path="res://assets/Park/street_lantern.gltf" id="18_so66j"]
+[ext_resource type="PackedScene" uid="uid://beep6pmo2xy82" path="res://assets/Park/cobble_stones_large.gltf" id="19_tr1x6"]
+[ext_resource type="PackedScene" uid="uid://bk6k535rgf11s" path="res://assets/City/bush.gltf" id="19_x2fux"]
+[ext_resource type="PackedScene" uid="uid://iq4tkujy1331" path="res://assets/Park/bush.gltf" id="20_d5akn"]
+[ext_resource type="PackedScene" uid="uid://bs3d44o6jtefg" path="res://assets/Park/trashcan.gltf" id="22_tr1x6"]
+[ext_resource type="PackedScene" uid="uid://1co57cfyfy3f" path="res://assets/Park/bench.gltf" id="22_wbtxt"]
+[ext_resource type="PackedScene" uid="uid://lknwiesn82bs" path="res://assets/Park/tree.gltf" id="22_x2fux"]
+[ext_resource type="PackedScene" uid="uid://b56sbxth5djsk" path="res://assets/Park/tree_large.gltf" id="23_d5akn"]
+[ext_resource type="PackedScene" uid="uid://dj2e0u0iggq32" path="res://assets/Park/hedge_corner.gltf" id="23_x2fux"]
+[ext_resource type="PackedScene" uid="uid://b76u4bwn2xkm1" path="res://assets/City/dumpster.gltf" id="26_s7g0b"]
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_x2fux"]
+
+[node name="Level1" type="Node3D"]
+
+[node name="City" type="Node3D" parent="."]
+
+[node name="GridMap_ّCity" type="GridMap" parent="City"]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)
+top_level = true
+mesh_library = ExtResource("1_014kd")
+data = {
+"cells": PackedInt32Array(65535, 65535, 1048579, 65438, 5, 15, 0, 1, 19, 0, 65535, 655379, 0, 65533, 655379, 0, 65532, 655379, 0, 65531, 17, 1, 65531, 1441811, 2, 65531, 1441809, 2, 65532, 655379, 2, 65533, 655379, 2, 0, 655379, 2, 65535, 655379, 2, 1, 655379, 2, 2, 655379, 0, 2, 655379, 0, 3, 655379, 2, 3, 655379, 2, 6, 655379, 0, 6, 655379, 0, 5, 655379, 2, 7, 655386, 1, 7, 1048595, 0, 7, 26, 1, 8, 655366, 65535, 2, 1048582, 65535, 3, 1048582, 65535, 5, 1048578, 65535, 65534, 1048581, 65535, 65533, 1048584, 65535, 6, 1048579, 65535, 65532, 1048580, 65535, 65531, 1048599, 65535, 65530, 1048599, 0, 65530, 5, 1, 65530, 7, 2, 65530, 2, 3, 65530, 23, 3, 65531, 1441801, 3, 65532, 1441797, 3, 65533, 1441794, 3, 0, 1441796, 3, 1, 1441797, 3, 2, 1441798, 3, 3, 1441794, 2, 8, 655379, 2, 9, 655379, 0, 8, 655379, 0, 9, 655379, 1, 9, 7, 3, 4, 1441796, 3, 5, 1441800, 3, 6, 1441801, 3, 7, 1441794, 65535, 7, 1048580, 3, 65535, 1048599, 65535, 8, 1048578, 65535, 9, 1048583, 3, 8, 1441801, 3, 9, 1441795, 65535, 1, 1048585, 65535, 0, 1048599, 0, 0, 655379, 2, 4, 25, 2, 5, 19, 65535, 4, 1048583, 0, 4, 25, 3, 65534, 1441798, 0, 65534, 655385, 2, 65534, 25, 4, 65531, 1048580, 4, 65530, 1048581, 3, 65529, 6, 4, 65529, 23, 4, 65532, 1048582, 4, 65533, 1048582, 4, 65534, 1048584, 4, 65535, 1048579, 4, 0, 1048578, 4, 1, 1048585, 4, 2, 1048585, 4, 3, 1048580, 4, 4, 1048582, 4, 5, 1048584, 4, 6, 1048581, 4, 7, 1048578, 4, 8, 1048580, 4, 9, 1048578, 5, 9, 19, 5, 8, 19, 5, 7, 19, 5, 6, 19, 5, 5, 19, 5, 4, 19, 5, 3, 19, 5, 2, 19, 5, 1, 19, 5, 0, 19, 5, 65535, 19, 5, 65534, 19, 5, 65533, 19, 5, 65532, 19, 5, 65531, 19, 5, 65530, 19, 5, 65529, 19, 0, 10, 1048594, 1, 10, 1048595, 2, 10, 1048602, 3, 10, 1441811, 4, 10, 1441811, 65535, 10, 1048581, 65535, 11, 1048599, 0, 11, 655369, 1, 11, 655368, 2, 11, 655364, 3, 11, 655367, 4, 11, 655362, 6, 11, 1441799, 6, 10, 1441801, 6, 9, 1441794, 6, 6, 1441794, 6, 8, 1441796, 6, 7, 1441797, 6, 5, 1441795, 6, 4, 1441799, 6, 3, 1441800, 6, 2, 1441795, 6, 1, 1441794, 6, 0, 1441801, 6, 65535, 1441797, 6, 65534, 1441795, 6, 65533, 1441794, 6, 65532, 1441800, 6, 65531, 1441799, 6, 65530, 1441799, 6, 65529, 1441794, 5, 65528, 1441810, 4, 65528, 1441811, 3, 65528, 1441811, 2, 65528, 1441811, 1, 65528, 1048595, 0, 65528, 1048595, 65535, 65528, 1048595, 65534, 65528, 1048595, 2, 65529, 655365, 1, 65529, 655362, 0, 65529, 655364, 65535, 65529, 655369, 6, 65527, 655383, 6, 65528, 1441798, 5, 65527, 3, 6, 65526, 6, 7, 65527, 1441799, 7, 65526, 655362, 4, 65527, 3, 3, 65527, 5, 2, 65527, 4, 1, 65527, 8, 0, 65527, 2, 65535, 65527, 3, 65534, 65527, 6, 65533, 65528, 18, 65533, 65527, 3, 65532, 65527, 1048581, 65532, 65528, 1048580, 65533, 65529, 19, 65533, 65530, 19, 65533, 65531, 19, 65533, 65532, 19, 65533, 65533, 19, 65533, 65534, 19, 65533, 65535, 19, 65533, 0, 19, 65533, 1, 19, 65533, 2, 19, 65533, 3, 19, 65533, 4, 19, 65533, 5, 19, 65533, 6, 19, 65533, 7, 19, 65533, 8, 19, 65533, 9, 19, 65533, 10, 19, 65533, 11, 19, 65533, 12, 19, 65535, 13, 1441811, 65534, 13, 1048595, 1, 13, 1048595, 0, 13, 1048595, 2, 13, 1048595, 3, 13, 1048595, 4, 13, 1048595, 65533, 13, 1048594, 5, 10, 655386, 5, 11, 655379, 5, 12, 655379, 5, 13, 655378, 65534, 65529, 1441794, 65534, 65530, 1441795, 65534, 65531, 1441796, 65534, 65532, 1441797, 65534, 65533, 1441799, 65534, 65534, 1441800, 65534, 65535, 1441794, 65534, 0, 1441799, 65534, 1, 1441800, 65534, 2, 1441801, 65534, 3, 1441801, 65534, 4, 1441794, 65534, 5, 1441798, 65534, 6, 1441794, 65534, 7, 1441798, 65534, 8, 1441798, 65534, 9, 1441798, 65534, 10, 1441797, 65534, 11, 1441796, 65534, 12, 1441794, 65535, 12, 4, 0, 12, 6, 1, 12, 7, 2, 12, 7, 3, 12, 3, 4, 12, 5, 65532, 65529, 1048579, 65532, 65530, 1048578, 65532, 65531, 1048584, 65532, 65532, 1048585, 65532, 65533, 1048581, 65532, 65534, 1048579, 65532, 65535, 1048578, 65532, 0, 1048582, 65532, 1, 1048583, 65532, 3, 1048582, 65532, 2, 1048582, 65532, 4, 1048579, 65532, 5, 1048578, 65532, 6, 1048585, 65532, 7, 1048584, 65532, 8, 1048582, 65532, 9, 1048578, 65532, 10, 1048578, 65532, 11, 1048579, 65532, 12, 1048580, 65532, 13, 1048579, 65533, 14, 655362, 65532, 14, 2, 65534, 14, 655366, 65535, 14, 655363, 0, 14, 655367, 1, 14, 655366, 2, 14, 655369, 3, 14, 655364, 4, 14, 655363, 5, 14, 655362, 6, 13, 1441799, 6, 12, 1441799)
+}
+metadata/_editor_floor_ = Vector3(0, 0, 0)
+
+[node name="Decorations" type="Node3D" parent="City"]
+
+[node name="Lights" type="Node3D" parent="City/Decorations"]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)
+
+[node name="streetlight" parent="City/Decorations/Lights" instance=ExtResource("4_5xbjy")]
+transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 0, 1.1, 2)
+
+[node name="streetlight2" parent="City/Decorations/Lights" instance=ExtResource("4_5xbjy")]
+transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 0, 1.1, 7)
+
+[node name="streetlight3" parent="City/Decorations/Lights" instance=ExtResource("4_5xbjy")]
+transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 0, 1.1, 12)
+
+[node name="streetlight4" parent="City/Decorations/Lights" instance=ExtResource("4_5xbjy")]
+transform = Transform3D(-1, -5.1646e-05, 4.56865e-06, -5.1646e-05, 1, -7.20946e-06, -4.56865e-06, -7.20945e-06, -1, 0, 1.1, 17)
+
+[node name="streetlight6" parent="City/Decorations/Lights" instance=ExtResource("4_5xbjy")]
+transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 0, 1.1, -8)
+
+[node name="streetlight7" parent="City/Decorations/Lights" instance=ExtResource("4_5xbjy")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 2.16546, 1.1, -9.99055)
+
+[node name="streetlight8" parent="City/Decorations/Lights" instance=ExtResource("4_5xbjy")]
+transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 6.01691, 1.1, -9.92996)
+
+[node name="streetlight9" parent="City/Decorations/Lights" instance=ExtResource("4_5xbjy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.00364, 1.1, -7.27495)
+
+[node name="streetlight11" parent="City/Decorations/Lights" instance=ExtResource("4_5xbjy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.004, 1.1, 2)
+
+[node name="streetlight12" parent="City/Decorations/Lights" instance=ExtResource("4_5xbjy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.004, 1.1, 7)
+
+[node name="streetlight13" parent="City/Decorations/Lights" instance=ExtResource("4_5xbjy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.004, 1.1, 12)
+
+[node name="streetlight14" parent="City/Decorations/Lights" instance=ExtResource("4_5xbjy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.004, 1.1, 17)
+
+[node name="streetlight15" parent="City/Decorations/Lights" instance=ExtResource("4_5xbjy")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 3.83571, 1.1, 16.016)
+
+[node name="trafficlight_C2" parent="City/Decorations/Lights" instance=ExtResource("5_4nkto")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.023, 1.09201, -2.648)
+
+[node name="trafficlight_C3" parent="City/Decorations/Lights" instance=ExtResource("5_4nkto")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.98538, 1.13457, -3.40012)
+
+[node name="trafficlight_C4" parent="City/Decorations/Lights" instance=ExtResource("5_4nkto")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.023, 1.09201, 9.35181)
+
+[node name="trafficlight_C5" parent="City/Decorations/Lights" instance=ExtResource("5_4nkto")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.98538, 1.13457, 8.59969)
+
+[node name="Cars" type="Node3D" parent="City/Decorations"]
+
+[node name="car_hatchback1" parent="City/Decorations/Cars" instance=ExtResource("8_7gny6")]
+transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, -4.48205, 4.64259, 3.76833)
+
+[node name="car_hatchback2" parent="City/Decorations/Cars" instance=ExtResource("8_7gny6")]
+transform = Transform3D(-4, 0, -3.49691e-07, 0, 4, 0, 3.49691e-07, 0, -4, 22.9914, 4.64259, 3.76833)
+
+[node name="car_sedan1" parent="City/Decorations/Cars" instance=ExtResource("9_2aecg")]
+transform = Transform3D(-1.74846e-07, 0, -4, 0, 4, 0, 4, 0, -1.74846e-07, 27.1932, 4.66514, -4.91712)
+
+[node name="car_sedan2" parent="City/Decorations/Cars" instance=ExtResource("9_2aecg")]
+transform = Transform3D(-1.74846e-07, 0, -4, 0, 4, 0, 4, 0, -1.74846e-07, 35.9734, 4.66514, 80.9189)
+
+[node name="car_sedan3" parent="City/Decorations/Cars" instance=ExtResource("9_2aecg")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 1.07777, 4.49984, 24.5205)
+
+[node name="car_stationwagon1" parent="City/Decorations/Cars" instance=ExtResource("10_6dial")]
+transform = Transform3D(-1.74846e-07, 0, -4, 0, 4, 0, 4, 0, -1.74846e-07, 27.3378, 4.56219, -1.47867)
+
+[node name="car_taxi1" parent="City/Decorations/Cars" instance=ExtResource("11_7nomh")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0.729024, 4.51481, -1.60079)
+
+[node name="car_taxi2" parent="City/Decorations/Cars" instance=ExtResource("11_7nomh")]
+transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 11.3553, 4.51481, 86.7443)
+
+[node name="car_police1" parent="City/Decorations/Cars" instance=ExtResource("12_1s4pk")]
+transform = Transform3D(-4, 0, -3.49691e-07, 0, 4, 0, 3.49691e-07, 0, -4, 22.8538, 4.52349, 57.7926)
+
+[node name="Park" type="Node3D" parent="."]
+
+[node name="Grass" parent="Park" instance=ExtResource("13_7gny6")]
+transform = Transform3D(4.05851, 0, 0, 0, 0.775, 0, 0, 0, 44.1, 11.9754, 4.39723, 11.9781)
+
+[node name="Decorations" type="Node3D" parent="Park"]
+
+[node name="fountain" parent="Park/Decorations" instance=ExtResource("14_7nomh")]
+transform = Transform3D(1.5, 0, 0, 0, 1, 0, 0, 0, 1.5, 12.1441, 4.49615, 11.2846)
+
+[node name="fountain_light" parent="Park/Decorations/fountain" instance=ExtResource("18_so66j")]
+transform = Transform3D(0.133333, 0, 0, 0, 0.2, 0, 0, 0, 0.133333, 0.00834846, 1.4325, -0.0091958)
+
+[node name="bird" parent="Park/Decorations/fountain" instance=ExtResource("15_d5akn")]
+transform = Transform3D(-0.149269, 0, -0.298043, 0, 0.5, 0, 0.298043, 0, -0.149269, -0.557868, 1.59497, -0.2962)
+
+[node name="Flowers" type="Node3D" parent="Park/Decorations"]
+
+[node name="flower_A2" parent="Park/Decorations/Flowers" instance=ExtResource("15_1s4pk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.4825, 4.41723, 7.98666)
+
+[node name="flower_A3" parent="Park/Decorations/Flowers" instance=ExtResource("15_1s4pk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.0156, 4.41723, 5.17351)
+
+[node name="flower_A4" parent="Park/Decorations/Flowers" instance=ExtResource("15_1s4pk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.39747, 4.41723, 15.1929)
+
+[node name="flower_A5" parent="Park/Decorations/Flowers" instance=ExtResource("15_1s4pk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.3672, 4.41723, 16.8181)
+
+[node name="flower_A6" parent="Park/Decorations/Flowers" instance=ExtResource("15_1s4pk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.673, 4.41723, 17.6612)
+
+[node name="flower_A7" parent="Park/Decorations/Flowers" instance=ExtResource("15_1s4pk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.7959, 4.41723, 14.9389)
+
+[node name="flower_A8" parent="Park/Decorations/Flowers" instance=ExtResource("15_1s4pk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.9116, 4.41723, 4.99076)
+
+[node name="flower_A12" parent="Park/Decorations/Flowers" instance=ExtResource("15_1s4pk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.1046, 4.41723, 7.18693)
+
+[node name="flower_A13" parent="Park/Decorations/Flowers" instance=ExtResource("15_1s4pk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.5987, 4.41723, 10.3293)
+
+[node name="flower_A14" parent="Park/Decorations/Flowers" instance=ExtResource("15_1s4pk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.84156, 4.41723, 9.3646)
+
+[node name="flower_A9" parent="Park/Decorations/Flowers" instance=ExtResource("15_1s4pk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.533, 4.41723, 6.97041)
+
+[node name="flower_A10" parent="Park/Decorations/Flowers" instance=ExtResource("15_1s4pk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.1659, 4.41723, 13.9961)
+
+[node name="flower_A11" parent="Park/Decorations/Flowers" instance=ExtResource("15_1s4pk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.1659, 4.41723, 13.9961)
+
+[node name="flower_B2" parent="Park/Decorations/Flowers" instance=ExtResource("16_isj1j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.00288, 4.41723, 6.34026)
+
+[node name="flower_B3" parent="Park/Decorations/Flowers" instance=ExtResource("16_isj1j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.6384, 4.41723, 6.80245)
+
+[node name="flower_B4" parent="Park/Decorations/Flowers" instance=ExtResource("16_isj1j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.7164, 4.41723, 15.2572)
+
+[node name="flower_B5" parent="Park/Decorations/Flowers" instance=ExtResource("16_isj1j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.90539, 4.41723, 17.2767)
+
+[node name="flower_B6" parent="Park/Decorations/Flowers" instance=ExtResource("16_isj1j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.0595, 4.41723, 2.5737)
+
+[node name="flower_B7" parent="Park/Decorations/Flowers" instance=ExtResource("16_isj1j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.8639, 4.41723, 19.7556)
+
+[node name="flower_B8" parent="Park/Decorations/Flowers" instance=ExtResource("16_isj1j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.17049, 4.41723, 23.1795)
+
+[node name="flower_B9" parent="Park/Decorations/Flowers" instance=ExtResource("16_isj1j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.4542, 4.41723, 20.2336)
+
+[node name="flower_B10" parent="Park/Decorations/Flowers" instance=ExtResource("16_isj1j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.4731, 4.41723, 1.56637)
+
+[node name="flower_B11" parent="Park/Decorations/Flowers" instance=ExtResource("16_isj1j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.807, 4.41723, 25.4268)
+
+[node name="flower_B12" parent="Park/Decorations/Flowers" instance=ExtResource("16_isj1j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.807, 4.41723, 25.4268)
+
+[node name="Grass" type="Node3D" parent="Park/Decorations"]
+
+[node name="grass_A2" parent="Park/Decorations/Grass" instance=ExtResource("16_x2xxo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.4814, 4.43729, 22.728)
+
+[node name="grass_A3" parent="Park/Decorations/Grass" instance=ExtResource("16_x2xxo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.3451, 4.43729, 29.352)
+
+[node name="grass_A4" parent="Park/Decorations/Grass" instance=ExtResource("16_x2xxo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.6899, 4.43729, -2.8576)
+
+[node name="grass_A5" parent="Park/Decorations/Grass" instance=ExtResource("16_x2xxo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.43129, 4.43729, -15.5611)
+
+[node name="grass_A6" parent="Park/Decorations/Grass" instance=ExtResource("16_x2xxo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.0077, 4.43729, -22.8693)
+
+[node name="grass_A7" parent="Park/Decorations/Grass" instance=ExtResource("16_x2xxo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.7273, 4.43729, -28.1398)
+
+[node name="grass_A8" parent="Park/Decorations/Grass" instance=ExtResource("16_x2xxo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.5222, 4.43729, -9.40939)
+
+[node name="grass_A9" parent="Park/Decorations/Grass" instance=ExtResource("16_x2xxo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.318, 4.43729, 37.9115)
+
+[node name="grass_A10" parent="Park/Decorations/Grass" instance=ExtResource("16_x2xxo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.4877, 4.43729, 45.7806)
+
+[node name="grass_A11" parent="Park/Decorations/Grass" instance=ExtResource("16_x2xxo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.5226, 4.43729, 50.2598)
+
+[node name="grass_A12" parent="Park/Decorations/Grass" instance=ExtResource("16_x2xxo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.6514, 4.43729, -17.3618)
+
+[node name="grass_A13" parent="Park/Decorations/Grass" instance=ExtResource("16_x2xxo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.416, 4.43729, 36.3599)
+
+[node name="grass_A14" parent="Park/Decorations/Grass" instance=ExtResource("16_x2xxo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.23348, 4.43729, 1.28796)
+
+[node name="Lights" type="Node3D" parent="Park/Decorations"]
+
+[node name="street_lantern1" parent="Park/Decorations/Lights" instance=ExtResource("18_so66j")]
+transform = Transform3D(0.75, 0, 0, 0, 1, 0, 0, 0, 0.75, 12.1344, 4.66352, -1.6677)
+
+[node name="street_lantern2" parent="Park/Decorations/Lights" instance=ExtResource("18_so66j")]
+transform = Transform3D(0.75, 0, 0, 0, 1, 0, 0, 0, 0.75, 12.1344, 4.66352, -31.6677)
+
+[node name="street_lantern3" parent="Park/Decorations/Lights" instance=ExtResource("18_so66j")]
+transform = Transform3D(0.75, 0, 0, 0, 1, 0, 0, 0, 0.75, 12.1344, 4.66352, -16.6677)
+
+[node name="street_lantern4" parent="Park/Decorations/Lights" instance=ExtResource("18_so66j")]
+transform = Transform3D(0.75, 0, 0, 0, 1, 0, 0, 0, 0.75, 12.1344, 4.66352, 55.6097)
+
+[node name="street_lantern5" parent="Park/Decorations/Lights" instance=ExtResource("18_so66j")]
+transform = Transform3D(0.75, 0, 0, 0, 1, 0, 0, 0, 0.75, 12.1344, 4.66352, 40.6097)
+
+[node name="street_lantern6" parent="Park/Decorations/Lights" instance=ExtResource("18_so66j")]
+transform = Transform3D(0.75, 0, 0, 0, 1, 0, 0, 0, 0.75, 12.1344, 4.66352, 25.6097)
+
+[node name="Walkway" type="Node3D" parent="Park/Decorations"]
+
+[node name="Left" type="Node3D" parent="Park/Decorations/Walkway"]
+
+[node name="cobble_stones_large1" parent="Park/Decorations/Walkway/Left" instance=ExtResource("19_tr1x6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.1437, 4.49723, -11.9489)
+
+[node name="cobble_stones_large2" parent="Park/Decorations/Walkway/Left" instance=ExtResource("19_tr1x6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.10982, 4.49723, -11.9489)
+
+[node name="cobble_stones_large3" parent="Park/Decorations/Walkway/Left" instance=ExtResource("19_tr1x6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.1284, 4.49723, -11.9489)
+
+[node name="cobble_stones_large4" parent="Park/Decorations/Walkway/Left" instance=ExtResource("19_tr1x6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.201, 4.49723, -11.9489)
+
+[node name="hedge_corner1" parent="Park/Decorations/Walkway/Left" instance=ExtResource("23_x2fux")]
+transform = Transform3D(-3.27835e-08, 0, -0.75, 0, 1, 0, 0.75, 0, -3.27835e-08, 15.4186, 4.39723, -14.5305)
+
+[node name="hedge_corner2" parent="Park/Decorations/Walkway/Left" instance=ExtResource("23_x2fux")]
+transform = Transform3D(0.75, 0, 0, 0, 1, 0, 0, 0, 0.75, 8.55464, 4.39723, -14.5305)
+
+[node name="hedge_corner3" parent="Park/Decorations/Walkway/Left" instance=ExtResource("23_x2fux")]
+transform = Transform3D(-3.27835e-08, 0, 0.75, 0, 1, 0, -0.75, 0, -3.27835e-08, 8.5619, 4.39723, -9.51772)
+
+[node name="hedge_corner4" parent="Park/Decorations/Walkway/Left" instance=ExtResource("23_x2fux")]
+transform = Transform3D(-0.75, 0, -6.55671e-08, 0, 1, 0, 6.55671e-08, 0, -0.75, 15.4059, 4.39723, -9.51772)
+
+[node name="Right" type="Node3D" parent="Park/Decorations/Walkway"]
+
+[node name="cobble_stones_large5" parent="Park/Decorations/Walkway/Right" instance=ExtResource("19_tr1x6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.1437, 4.49723, 36.0496)
+
+[node name="cobble_stones_large6" parent="Park/Decorations/Walkway/Right" instance=ExtResource("19_tr1x6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.10982, 4.49723, 36.0496)
+
+[node name="cobble_stones_large7" parent="Park/Decorations/Walkway/Right" instance=ExtResource("19_tr1x6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.1284, 4.49723, 36.0496)
+
+[node name="cobble_stones_large8" parent="Park/Decorations/Walkway/Right" instance=ExtResource("19_tr1x6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.201, 4.49723, 36.0496)
+
+[node name="hedge_corner5" parent="Park/Decorations/Walkway/Right" instance=ExtResource("23_x2fux")]
+transform = Transform3D(-3.27835e-08, 0, -0.75, 0, 1, 0, 0.75, 0, -3.27835e-08, 15.4186, 4.39723, 33.468)
+
+[node name="hedge_corner6" parent="Park/Decorations/Walkway/Right" instance=ExtResource("23_x2fux")]
+transform = Transform3D(0.75, 0, 0, 0, 1, 0, 0, 0, 0.75, 8.55464, 4.39723, 33.468)
+
+[node name="hedge_corner7" parent="Park/Decorations/Walkway/Right" instance=ExtResource("23_x2fux")]
+transform = Transform3D(-3.27835e-08, 0, 0.75, 0, 1, 0, -0.75, 0, -3.27835e-08, 8.5619, 4.39723, 38.4808)
+
+[node name="hedge_corner8" parent="Park/Decorations/Walkway/Right" instance=ExtResource("23_x2fux")]
+transform = Transform3D(-0.75, 0, -6.55671e-08, 0, 1, 0, 6.55671e-08, 0, -0.75, 15.4059, 4.39723, 38.4808)
+
+[node name="Bushes" type="Node3D" parent="Park/Decorations"]
+
+[node name="bush1" parent="Park/Decorations/Bushes" instance=ExtResource("20_d5akn")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 10.2658, 4.39723, 16.581)
+
+[node name="bush2" parent="Park/Decorations/Bushes" instance=ExtResource("20_d5akn")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 10.3126, 4.39723, -25.4361)
+
+[node name="bush3" parent="Park/Decorations/Bushes" instance=ExtResource("20_d5akn")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 14.2259, 4.36729, 0.141701)
+
+[node name="bush4" parent="Park/Decorations/Bushes" instance=ExtResource("20_d5akn")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 9.36226, 4.39723, 30.3376)
+
+[node name="bush5" parent="Park/Decorations/Bushes" instance=ExtResource("20_d5akn")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 14.6421, 4.39723, 50.5746)
+
+[node name="bush6" parent="Park/Decorations/Bushes" instance=ExtResource("20_d5akn")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 14.6421, 4.39723, 50.5746)
+
+[node name="bush7" parent="Park/Decorations/Bushes" instance=ExtResource("20_d5akn")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 9.1483, 4.39723, -4.626)
+
+[node name="Bushpot1" parent="Park/Decorations/Bushes" instance=ExtResource("19_x2fux")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 10.1237, 4.39723, 9.29483)
+
+[node name="Bushpot2" parent="Park/Decorations/Bushes" instance=ExtResource("19_x2fux")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 14.0522, 4.39723, 9.29483)
+
+[node name="Bushpot3" parent="Park/Decorations/Bushes" instance=ExtResource("19_x2fux")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 14.0522, 4.39723, 13.272)
+
+[node name="Bushpot4" parent="Park/Decorations/Bushes" instance=ExtResource("19_x2fux")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 10.2049, 4.39723, 13.272)
+
+[node name="Bench" type="Node3D" parent="Park/Decorations"]
+
+[node name="bench1" parent="Park/Decorations/Bench" instance=ExtResource("22_wbtxt")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 12.0127, 4.39723, 19.9553)
+
+[node name="bench2" parent="Park/Decorations/Bench" instance=ExtResource("22_wbtxt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.98932, 4.39723, -31.3477)
+
+[node name="bench3" parent="Park/Decorations/Bench" instance=ExtResource("22_wbtxt")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 13.9183, 4.39723, 55.265)
+
+[node name="bench4" parent="Park/Decorations/Bench" instance=ExtResource("22_wbtxt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.0127, 4.39723, 2.93608)
+
+[node name="Trashcans" type="Node3D" parent="Park/Decorations"]
+
+[node name="trashcan1" parent="Park/Decorations/Trashcans" instance=ExtResource("22_tr1x6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.4836, 4.39723, 46.7527)
+
+[node name="trashcan2" parent="Park/Decorations/Trashcans" instance=ExtResource("22_tr1x6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.4926, 4.39723, -24.2103)
+
+[node name="trashcan3" parent="Park/Decorations/Trashcans" instance=ExtResource("22_tr1x6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.49521, 4.39723, 15.9599)
+
+[node name="Trees" type="Node3D" parent="Park/Decorations"]
+
+[node name="tree_large1" parent="Park/Decorations/Trees" instance=ExtResource("23_d5akn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.4798, 4.40808, -3.13253)
+
+[node name="tree_large2" parent="Park/Decorations/Trees" instance=ExtResource("23_d5akn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.41057, 4.45326, -39.4117)
+
+[node name="tree_large3" parent="Park/Decorations/Trees" instance=ExtResource("23_d5akn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.46257, 4.45326, 0.812169)
+
+[node name="tree_large4" parent="Park/Decorations/Trees" instance=ExtResource("23_d5akn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.41955, 4.45326, 6.66033)
+
+[node name="tree_large5" parent="Park/Decorations/Trees" instance=ExtResource("23_d5akn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.09163, 4.45326, 6.66033)
+
+[node name="tree_large6" parent="Park/Decorations/Trees" instance=ExtResource("23_d5akn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.2649, 4.40808, -3.13253)
+
+[node name="tree_large7" parent="Park/Decorations/Trees" instance=ExtResource("23_d5akn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.1037, 4.45671, 43.3391)
+
+[node name="tree_large8" parent="Park/Decorations/Trees" instance=ExtResource("23_d5akn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.1037, 4.45671, -27.4885)
+
+[node name="tree_large9" parent="Park/Decorations/Trees" instance=ExtResource("23_d5akn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.1037, 4.45671, 22.572)
+
+[node name="tree_large10" parent="Park/Decorations/Trees" instance=ExtResource("23_d5akn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.9397, 4.45671, -40.095)
+
+[node name="tree_large11" parent="Park/Decorations/Trees" instance=ExtResource("23_d5akn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.9999, 4.45671, -23.6247)
+
+[node name="tree_large13" parent="Park/Decorations/Trees" instance=ExtResource("23_d5akn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.0835, 4.45671, 72.6753)
+
+[node name="other_tree1" parent="Park/Decorations/Trees" instance=ExtResource("3_4nkto")]
+transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, -4.55904, 4.4, -39.1168)
+
+[node name="other_tree2" parent="Park/Decorations/Trees" instance=ExtResource("3_4nkto")]
+transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, -2.80154, 4.4, -36.5414)
+
+[node name="other_tree3" parent="Park/Decorations/Trees" instance=ExtResource("3_4nkto")]
+transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, -5.62756, 4.4, -33.9634)
+
+[node name="other_tree4" parent="Park/Decorations/Trees" instance=ExtResource("23_d5akn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.9999, 4.45671, 32.2042)
+
+[node name="tree1" parent="Park/Decorations/Trees" instance=ExtResource("22_x2fux")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.24226, 4.45671, -33.6847)
+
+[node name="tree2" parent="Park/Decorations/Trees" instance=ExtResource("22_x2fux")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.89841, 4.45671, -36.6711)
+
+[node name="tree3" parent="Park/Decorations/Trees" instance=ExtResource("22_x2fux")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.89841, 4.45671, 0.891283)
+
+[node name="tree4" parent="Park/Decorations/Trees" instance=ExtResource("22_x2fux")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000777662, 4.45671, 13.5888)
+
+[node name="tree5" parent="Park/Decorations/Trees" instance=ExtResource("22_x2fux")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000777662, 4.45671, -22.2665)
+
+[node name="tree6" parent="Park/Decorations/Trees" instance=ExtResource("22_x2fux")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0164904, 4.47705, 56.221)
+
+[node name="tree7" parent="Park/Decorations/Trees" instance=ExtResource("22_x2fux")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0164904, 4.47705, 71.5636)
+
+[node name="tree8" parent="Park/Decorations/Trees" instance=ExtResource("22_x2fux")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.0933, 4.45671, -3.23483)
+
+[node name="tree9" parent="Park/Decorations/Trees" instance=ExtResource("22_x2fux")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.0933, 4.45671, -3.23483)
+
+[node name="tree10" parent="Park/Decorations/Trees" instance=ExtResource("22_x2fux")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.9999, 4.45671, 11.8056)
+
+[node name="tree11" parent="Park/Decorations/Trees" instance=ExtResource("22_x2fux")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.1037, 4.45671, -20.9169)
+
+[node name="tree12" parent="Park/Decorations/Trees" instance=ExtResource("22_x2fux")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.1037, 4.45671, -7.36913)
+
+[node name="tree13" parent="Park/Decorations/Trees" instance=ExtResource("22_x2fux")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.39867, 4.45671, -40.095)
+
+[node name="tree14" parent="Park/Decorations/Trees" instance=ExtResource("22_x2fux")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.1037, 4.45671, 30.7936)
+
+[node name="tree15" parent="Park/Decorations/Trees" instance=ExtResource("22_x2fux")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.9999, 4.45671, 51.7387)
+
+[node name="tree16" parent="Park/Decorations/Trees" instance=ExtResource("22_x2fux")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.1037, 4.45671, 51.8712)
+
+[node name="tree17" parent="Park/Decorations/Trees" instance=ExtResource("22_x2fux")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.9999, 4.45671, -36.1621)
+
+[node name="planter1" parent="Park/Decorations/Trees" instance=ExtResource("4_pa8r4")]
+transform = Transform3D(16, 0, 0, 0, 16, 0, 0, 0, 16, -3.83173, 4.4, -43.7932)
+
+[node name="planter2" parent="Park/Decorations/Trees" instance=ExtResource("4_pa8r4")]
+transform = Transform3D(16, 0, 0, 0, 16, 0, 0, 0, 16, 28.0646, 4.4, -43.7932)
+
+[node name="planter3" parent="Park/Decorations/Trees" instance=ExtResource("4_pa8r4")]
+transform = Transform3D(16, 0, 0, 0, 16, 0, 0, 0, 16, -4.76881, 4.4, 91.9919)
+
+[node name="LevelBorder" type="StaticBody3D" parent="."]
+
+[node name="dumpster2" parent="LevelBorder" instance=ExtResource("26_s7g0b")]
+transform = Transform3D(-1.74846e-07, 0, -4, 0, 4, 0, 4, 0, -1.74846e-07, 32.9322, 4.28, 81.761)
+
+[node name="dumpster3" parent="LevelBorder" instance=ExtResource("26_s7g0b")]
+transform = Transform3D(-1.74846e-07, 0, -4, 0, 4, 0, 4, 0, -1.74846e-07, 32.9322, 4.28, 84.1805)
+
+[node name="dumpster1" parent="LevelBorder" instance=ExtResource("26_s7g0b")]
+transform = Transform3D(-1.74846e-07, 0, -4, 0, 4, 0, 4, 0, -1.74846e-07, 32.9322, 4.28, 86.4606)
+
+[node name="LevelWall1" type="CollisionShape3D" parent="LevelBorder"]
+transform = Transform3D(-4.37114e-08, 1, -4.37114e-08, 0, -4.37114e-08, -1, -1, -4.37114e-08, 1.91069e-15, -7.93505, 12.0881, -33.0983)
+shape = SubResource("WorldBoundaryShape3D_x2fux")
+
+[node name="LevelWall2" type="CollisionShape3D" parent="LevelBorder"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 9.35646, 12.0881, -47.6041)
+shape = SubResource("WorldBoundaryShape3D_x2fux")
+
+[node name="LevelWall3" type="CollisionShape3D" parent="LevelBorder"]
+transform = Transform3D(-4.37114e-08, -1, 4.37114e-08, 0, -4.37114e-08, -1, 1, -4.37114e-08, 1.91069e-15, 32.2428, 12.0881, -32.5745)
+shape = SubResource("WorldBoundaryShape3D_x2fux")
+
+[node name="LevelWall4" type="CollisionShape3D" parent="LevelBorder"]
+transform = Transform3D(-1, -8.74228e-08, 3.82137e-15, 0, -4.37114e-08, -1, 8.74228e-08, -1, 4.37114e-08, 26.1125, 12.0881, 95.685)
+shape = SubResource("WorldBoundaryShape3D_x2fux")

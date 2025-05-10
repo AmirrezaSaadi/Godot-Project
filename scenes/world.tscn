@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://bukj2ubhn0e03"]
+
+[ext_resource type="PackedScene" uid="uid://bl8esoo65qlf" path="res://scenes/player.tscn" id="2_rwgxs"]
+[ext_resource type="PackedScene" uid="uid://dqqeac21tpx6b" path="res://scenes/level_1.tscn" id="3_4wyf3"]
+[ext_resource type="PackedScene" uid="uid://bjpx5mtorlrt4" path="res://scenes/sky.tscn" id="3_k0juu"]
+
+[node name="World" type="Node3D"]
+
+[node name="Sky" parent="." instance=ExtResource("3_k0juu")]
+
+[node name="Map" type="Node3D" parent="."]
+
+[node name="Level1" parent="Map" instance=ExtResource("3_4wyf3")]
+
+[node name="Player" parent="." instance=ExtResource("2_rwgxs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.10282, 5.3165, 2)
+jump_height = 1.75

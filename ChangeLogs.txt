@@ -1,0 +1,20 @@
+Current Version = 0.1 (Developing Phase)
+
+What's New:
+-Compatibility mode changed to mobile
+-Added Responsive Sky Texture with day/night cycle
+-Added World Border
+-Added Atmosphere to not make the map look dead
+
+
+Planned Features:
+-Responsive Street Lights (next)
+-NPCs that roam the city
+-Score System
+-Save System
+-Pause Menu
+-Settings Menu
+-Main Menu
+-Voice Effects & Music
+-Credits
+-2 More Levels "Home" & "Vacation"
